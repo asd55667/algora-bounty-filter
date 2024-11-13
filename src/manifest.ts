@@ -12,12 +12,6 @@ const manifest = {
   },
   background: {
     service_worker: "src/entries/background/main.ts",
-    persistent: true, 
-    scripts: [
-      // "src/entries/background/worker.js",
-      // "src/entries/background/context.js",
-      // "src/entries/background/v2.js",
-    ]
   },
   content_scripts: [
     {
@@ -27,11 +21,11 @@ const manifest = {
   ],
   permissions: [
     "storage",
-    "<all_urls>",
     "webRequest",
-    "webRequestBlocking",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
   ] as chrome.runtime.ManifestPermissions[],
-  // host_permissions: ["*://console.algora.io/*"],
+  host_permissions: ["*://console.algora.io/*"],
   icons: {
     16: "icons/16.png",
     32: "icons/32.png",

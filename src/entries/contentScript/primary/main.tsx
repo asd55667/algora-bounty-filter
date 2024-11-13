@@ -88,7 +88,7 @@ async function isIssueOpen(bounty: Bounty) {
         resolve(true);
       } else if (/"Status: Closed"/.test(response.data)) {
         resolve(false);
-      } else if (/"This issue has been deleted"/.test(response.data)) {
+      } else if (/This issue has been deleted/.test(response.data)) {
         resolve(false);
       } else {
         resolve(true);
